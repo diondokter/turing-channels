@@ -41,7 +41,7 @@ async fn main(spawner: embassy::executor::Spawner, p: embassy_nrf::Peripherals) 
 
         let mut message = String::new();
         write!(&mut message, "Current index: {index}").unwrap();
-        message_publisher.publish(message).await;
+        message_publisher.publish_immediate(message);
 
         index += 1;
     }
